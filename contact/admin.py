@@ -11,5 +11,5 @@ class ContactAdmin(admin.ModelAdmin):
     search_fields = ['primeiro_nome','ultimo_nome']
     list_filter = ['data_criacao','id']
     #list_editable = ['ultimo_nome']
-    list_per_page = 1
+    list_per_page = 5
     list_max_show_all = 10
