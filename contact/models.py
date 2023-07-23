@@ -13,7 +13,7 @@ class Contact(models.Model):
   email         = models.EmailField(max_length=255,blank=True)
   data_criacao  = models.DateTimeField(default=timezone.now)
   descricao     = models.TextField(blank=True)
-  show          = models.BooleanField
+  show          = models.BooleanField(default=True)
   picture       = models.ImageField(blank=True, upload_to=r'pictures/%Y/%m/%d')
   
   #category      = models.ForeignKey(Category, on_delete=models.CASCADE)
