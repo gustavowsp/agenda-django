@@ -4,7 +4,7 @@ from django.shortcuts import render
 def index(request):
     
     context = {
-        'titulo' : 'Página inicial'
+        'titulo' : 'Contatos'
     }
     return render(
       request,

@@ -1,1 +1,39 @@
 {%extends 'global/base.html'%}
+
+{% block 'body' %}
+<div class="container ">
+
+
+  <header >
+      <h1 class="display-4">Contatos</h1>
+  </header>
+
+  <div id="tabela-contatos" class="bg-white">
+      
+      <div class="table-responsive">
+          <table class="table">
+              <thead>
+              <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+              </tr>
+
+              </tbody>
+          </table>
+      </div>
+
+  </div>
+
+</div>
+
+{% endblock 'body' %}
