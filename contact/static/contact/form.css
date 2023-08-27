@@ -10,7 +10,7 @@
   
   text-align: start ;
   margin: auto;
-  width: 300px;
+  width: 400px;
   
 }
 
@@ -52,3 +52,19 @@
   display: block;
   margin-bottom: 30px;
 }
+
+.help_text{
+  font-size: 0.7em;
+  font-weight: 600;
+}
+.help_text ul li{
+  margin-bottom: 6px;
+}
+.help_text ul{
+  list-style-type: none;
+
+}
+.help_text p{
+  margin: 0px;
+}
+

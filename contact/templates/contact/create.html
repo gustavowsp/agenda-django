@@ -20,7 +20,9 @@
       <label for="{{field.id_for_label}}">{{field.label}}</label>
       {{field}}
       {{field.errors}}
-      {{field.help_text}}
+      <span class="help_text">
+       <p> {{field.help_text}}</p>
+      </span>
     </div>
     {% endfor %}
     {{form.non_field_errors}}
