@@ -1,0 +1,16 @@
+<div class="container">
+  <div id="search" class="mb-5 w-75 ">
+    <h5>Pesquisa</h5>
+    <form action="{% url 'contatos:search'%}"  class="d-flex" method="get">
+      <input 
+        type="text" 
+        class="form-control  mr-4 w-50" 
+        name="q" 
+        placeholder="Barra de pesquisa..."
+        value="{{ request.GET.q.strip }}"
+        >
+        <button class="btn btn-info btn-sm  d-inline">Ir Buscar!</button>
+    </form>
+  
+  </div>
+</div>

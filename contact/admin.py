@@ -5,12 +5,12 @@ from contact import models
 # Register your models here.
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['id','primeiro_nome','ultimo_nome','data_criacao']
+    list_display = ['id','primeiro_nome','ultimo_nome','show']
     list_display_links = ['id','primeiro_nome']
     ordering = ['-id']
     search_fields = ['primeiro_nome','ultimo_nome']
     list_filter = ['data_criacao','category']
-    #list_editable = ['ultimo_nome']
+    list_editable = ['show']
     list_per_page = 50
     list_max_show_all = 100
 

@@ -22,13 +22,13 @@ class Contact(models.Model):
     verbose_name = 'Contato'
     verbose_name_plural = 'Contatos'
 
-  primeiro_nome = models.CharField(max_length=255)
-  ultimo_nome   = models.CharField(max_length=255)
-  telefone      = models.CharField(max_length=255)
+  primeiro_nome = models.CharField(max_length=255, blank=True)
+  ultimo_nome   = models.CharField(max_length=255, blank=True)
+  telefone      = models.CharField(max_length=255, blank=True)
   email         = models.EmailField(max_length=255,blank=True)
-  data_criacao  = models.DateTimeField(default=timezone.now)
+  data_criacao  = models.DateTimeField(default=timezone.now, blank=True)
   descricao     = models.TextField(blank=True)
-  show          = models.BooleanField(default=True)
+  show          = models.BooleanField(default=True, blank=True)
   picture       = models.ImageField(blank=True, upload_to=r'pictures/%Y/%m/%d')
   
   #category     = models.ForeignKey(Category, on_delete=models.CASCADE)

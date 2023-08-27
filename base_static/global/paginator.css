@@ -1,0 +1,16 @@
+.paginacao{
+
+  width: 100%;
+  padding: 30px ;
+  text-align: center;
+}
+.paginacao span{
+  margin: 0px 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.paginacao span a{
+  color: white;
+  text-decoration: none;
+}
+

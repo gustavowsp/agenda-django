@@ -1,39 +1,71 @@
 {%extends 'global/base.html'%}
+{% load static %}
+
+{%block 'css'%}
+  <link rel="stylesheet" href="{% static 'contact/table.css'%}">
+{%endblock 'css'%}
 
 {% block 'body' %}
-<div class="container ">
+  {% include 'global/partials/_search.html' %}
+
+  <div class="container ">
 
 
-  <header >
-      <h1 class="display-4">Contatos</h1>
-  </header>
 
-  <div id="tabela-contatos" class="bg-white">
-      
-      <div class="table-responsive">
-          <table class="table">
-              <thead>
-              <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-              </tr>
 
-              </tbody>
-          </table>
-      </div>
+
+
+
+    <div id="tabela-contatos" >
+        
+
+    {% if contatos %}    
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>  
+                    <th scope="col">id</th>
+                    <th scope="col">Primeiro nome</th>
+                    <th scope="col">Último nome</th>
+                    <th scope="col">telefone</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">email</th>
+                </tr>
+                </thead>
+                <tbody>
+              {% for contato in contatos  %}
+                <tr>
+                    <th scope="row">
+                      <a href="{% url 'contatos:single_contact' contato.id %}">
+                        {{contato.id}}
+                      </a>
+                    </th>
+                    <td>{{contato.primeiro_nome}}</td>
+                    <td>{{contato.ultimo_nome}}</td> 
+                      
+                    <td> {{contato.telefone}}</td>
+                    <td>{{contato.category}}</td>
+                    <td>{{contato.email}}</td>
+                </tr>
+              {% endfor %}
+                </tbody>
+            </table>
+
+            {% include 'global/partials/_paginator.html' %}
+        </div>
+    {% else %}
+        <div class="bg-white px-5 py-3">
+
+          <h1>
+            Sem contatos para exibir
+          </h1>
+
+        </div>
+        
+    {% endif %}
+
+    </div>
 
   </div>
-
-</div>
 
 {% endblock 'body' %}

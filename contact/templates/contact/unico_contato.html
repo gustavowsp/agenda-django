@@ -1,0 +1,61 @@
+{%extends 'global/base.html'%}
+{% load static %}
+
+{%block 'css'%}
+  <link rel="stylesheet" href="{% static 'contact/contato.css'%}">
+{%endblock 'css'%}
+
+{% block 'body' %}
+{% include 'global/partials/_search.html' %}
+
+<div class="container">
+
+
+
+  <div class="text-center container bg-white py-2 mb-5">
+
+    <h1>Contato</h1>
+    
+    <div class="mx-5 ">
+      
+      {% if contact.picture%}
+      <div class="img">
+        <img src="{{contact.picture.url}}" alt="">
+      </div>
+      {%endif%}
+
+      <div> <b>Id:</b> {{contact.id}} </div>
+      <div> <b>Primeiro nome:</b> {{contact.primeiro_nome}} </div>
+      <div> <b>Email:</b> {{contact.email}} </div>
+      <div> <b>Telefone:</b> {{contact.telefone}} </div>
+      <div> <b>Categoria:</b> {{contact.category.name}} </div>
+      <div> <b>Categoria Id:</b> {{contact.category.id}} </div>
+
+      <br>
+      
+      <div class="mb-5">
+        <a  class="btn btn-info btn-sm" href="{% url 'contatos:update' contact.id %}">Atualizar dados</a>
+
+        
+        {% if not confirmacao%}
+          <a  class="btn btn-danger btn-sm" href="{% url 'contatos:delete_contact' contact.id %}">Deletar dados</a>
+        {%else%}
+        <form action="{{form_action}}" class="d-inline" method="post">
+          {% csrf_token %}
+          
+            <input type="hidden" name="confirmacao" value="sim">
+            <button  class="btn btn-warning btn-sm" href="{% url 'contatos:delete_contact' contact.id %}">Confirma a exclusão?</button>
+            
+          </form>
+        {%endif%}
+          
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+{% endblock 'body' %}

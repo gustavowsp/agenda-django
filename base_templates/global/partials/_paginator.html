@@ -1,0 +1,47 @@
+{%load static%}
+{% if not request.GET.q %}
+
+<div class="paginacao">
+
+  <span class="btn btn-sm btn-info">
+    <a href="?page=1">Primeira</a>
+  </span>
+
+  {%if contatos.has_previous%}
+    <span class="btn btn-sm btn-info">
+      <a href="?page={{contatos.previous_page_number}}">Anterior</a>
+    </span>
+  {%endif%}
+
+  <span>Página {{contatos.number}} de {{contatos.paginator.num_pages}} </span>
+
+  {% if contatos.has_next%}
+  <span class="btn btn-sm btn-info">
+    <a href="?page={{contatos.next_page_number}}">Posterior</a>
+  </span>
+  {% endif %}
+
+</div>
+{%else%}
+<div class="paginacao">
+
+  <span class="btn btn-sm btn-info">
+    <a href="?page=1&q={{request.GET.q}}">Primeira</a>
+  </span>
+
+  {%if contatos.has_previous%}
+    <span class="btn btn-sm btn-info">
+      <a href="?page={{contatos.previous_page_number}}&q={{request.GET.q}}">Anterior</a>
+    </span>
+  {%endif%}
+
+  <span>Página {{contatos.number}} de {{contatos.paginator.num_pages}} </span>
+
+  {% if contatos.has_next%}
+  <span class="btn btn-sm btn-info">
+    <a href="?page={{contatos.next_page_number}}&q={{request.GET.q}}">Posterior</a>
+  </span>
+  {% endif %}
+
+</div>
+{%endif%}
